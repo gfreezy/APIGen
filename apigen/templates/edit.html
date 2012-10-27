@@ -9,7 +9,7 @@
 <div>
     <p>
         <table>
-        <% for param in parameters %>
+        {% for param in parameters %}
         <tr>
             <td>
             已有输入值
@@ -18,7 +18,7 @@
             {{param}}
             </td>
         </tr>
-        <% endfor %>
+        {% endfor %}
         </table>
         <span>
         parameters
@@ -34,7 +34,7 @@
 
     <p>
         <table>
-        <% for res in responses %>
+        {% for res in responses %}
         <tr>
             <td>
             已有返回值
@@ -43,7 +43,7 @@
             {{res}}
             </td>
         </tr>
-        <% endfor %>
+        {% endfor %}
         </table>
         <span>
         responses

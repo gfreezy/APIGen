@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>apigen_home</title>
+</head>
+<body>
+<h3>hello apigen</h3>
+<h4>services</h4>
+<table>
+{% for service in all_services %}
+<tr>
+    <td>
+     id: <a href="/service/{{service}}">{{service}}</a>  
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<form action="/" method="POST">
+<input type="hidden" name="gen" value="init" >
+<span>create your own gen</span>
+<input type="submit">
+</form>
+</body>
+</html>
+
