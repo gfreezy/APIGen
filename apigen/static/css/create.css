@@ -1,11 +1,25 @@
-.param {
-	overflow: hidden;
+body {
+	font: 18px/27px "PTSansRegular",Arial,sans-serif;
+	background-image: url(/static/img/cream_dust.png);
+	background-position: initial initial;
+	background-repeat: initial initial;
 }
 
-.param label {
-	width: 55px;
+select {
+	/*-webkit-appearance: none;*/
 }
 
-.param input {
-	float: left;
+#getName {
+	border-left: 1px solid #DEDEDE;
+}
+
+#giveName, #getName {
+padding: 1em;
+}
+
+.name {
+	width: 150px;
+}
+.type {
+	width: 80px;
 }
