@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#coding:utf-8
 #import MySQLdb
 from flask import Flask, g, request
 from flask import render_template
