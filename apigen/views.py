@@ -26,7 +26,12 @@ def create_post():
         request_instance = GetRequest(lang=lang, params=json.dumps(dump_result), resp=resp)
         db.session.add(request_instance)
         db.session.commit()
-    return redirect('/')
+    return redirect('/success')
+
+
+@app.route('/success')
+def success():
+    return render_template('success.html')
 
 
 @app.route('/')
@@ -46,6 +51,7 @@ def apigen(apigen_id=None):
         return render_args(gr.lang, gr.resp, result)
     except TypeError:
         return render_template('not_enough_params.html')
+
 
 @app.errorhandler(404)
 def page_not_found(error):

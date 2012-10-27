@@ -23,8 +23,15 @@ $(document).ready(function() {
 
     set_indent($textarea);
 
-    $('#myTab a').click(function (e) {
+    var $myTab = $("#myTab");
+    $myTab.find('a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
+    });
+
+    $("select[name='lang']").change(function() {
+        var $this = $(this);
+        var value = $this.val();
+        $myTab.find("a[href='#" + value + "']").tab("show");
     });
 });
