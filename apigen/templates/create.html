@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Name This: A Naming Tool For Programmers. Let the community inspire you!</title>
+  <title>APIGen: Create a Gen</title>
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/static/css/create.css">
   <script type="text/javascript" src="/static/js/jquery.min.js"></script>
@@ -22,97 +22,97 @@
             <strong><a href="/users/auth/github">GitHub</a></strong> |
             <strong><a href="/users/auth/twitter">Twitter</a></strong> |
             <strong><a href="/users/auth/google_apps">Gmail</a></strong>
-          </div>
-        </nav>
-        <div style="text-align: right;">
-          <h1 style="margin-top: 30px;">
-            <a href="/">APIGen</a>
-            <span class="muted">erator</span>
-          </h1>
         </div>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div id="giveName" class="span6">
-      </div>
-      <div id="getName" class="span6">
-        <form accept-charset="UTF-8" action="/create" class="form-horizontal" method="post" style="margin: 20px 0">
-          <input name="params" type="hidden" value="" />
-          <div class="control-group">
-            <label class="control-label">What method?</label>
-            <div class="controls">
+    </nav>
+    <div style="text-align: right;">
+      <h1 style="margin-top: 30px;">
+        <a href="/">Gen it</a>
+    </h1>
+</div>
+</div>
+</div>
+<div class="row-fluid">
+  <div id="giveName" class="span6">
+  </div>
+  <div id="getName" class="span6">
+    <form accept-charset="UTF-8" action="/create" class="form-horizontal" method="post" style="margin: 20px 0">
+      <input name="params" type="hidden" value="" />
+      <div class="control-group">
+        <label class="control-label">What method?</label>
+        <div class="controls">
               <select class="input-xlarge" name="method">
                 <option value="get">Get</option>
                 <option value="post">Post</option>
-              </select>
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label">What parameters?</label>
-            <div class="controls">
-              <ul class="unstyled" id="params">
-                <li class="param input-append input-prepend">
-                  <span class="add-on">name</span>
-                  <input type="text" class="name"/>
-                  <select class="type">
-                    <option value="int">int</option>
-                    <option value="string" selected="selected">string</option>
-                  </select>
-                </li>
-                <li class="param input-append input-prepend">
-                  <span class="add-on">name</span>
-                  <input type="text" class="name"/>
-                  <select class="type">
-                    <option value="int">int</option>
-                    <option value="string" selected="selected">string</option>
-                  </select>
-                </li>
-                <li class="param input-append input-prepend">
-                  <span class="add-on">name</span>
-                  <input type="text" class="name"/>
-                  <select class="type">
-                    <option value="int">int</option>
-                    <option value="string" selected="selected">string</option>
-                  </select>
-                </li>
-              </ul>
-              <div class="add">
-                <button class="btn">Add</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label">What response?</label>
-            <div class="controls">
-              <textarea class="input-xlarge" cols="40" name="resp" placeholder="How does it work? Why is it needed?" rows="10"></textarea>
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label">Run this for</label>
-            <div class="controls">
-              <select name="duration">
-                <option value="2" selected="selected">Two days</option>
-                <option value="14">Two weeks</option>
-                <option value="30">One Month</option>
-                <option value="">Until I choose a winner</option></select>
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <input class="btn btn-danger" type="submit" value="Name This!" />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div id="footer" class="row-fluid">
-        <div class="span12">
-          <a href="http://twitter.com/namethisnet">Follow @namethisnet on Twitter</a>
-        </div>
-      </div>
-
+            </select>
     </div>
-  </body>
-  </html>
+</div>
+<div class="control-group">
+    <label class="control-label">What parameters?</label>
+    <div class="controls">
+      <ul class="unstyled" id="params">
+        <li class="param input-append input-prepend">
+          <span class="add-on">name</span>
+          <input type="text" class="name"/>
+          <select class="type">
+            <option value="int">int</option>
+            <option value="string" selected="selected">string</option>
+        </select>
+    </li>
+    <li class="param input-append input-prepend">
+      <span class="add-on">name</span>
+      <input type="text" class="name"/>
+      <select class="type">
+        <option value="int">int</option>
+        <option value="string" selected="selected">string</option>
+    </select>
+</li>
+<li class="param input-append input-prepend">
+  <span class="add-on">name</span>
+  <input type="text" class="name"/>
+  <select class="type">
+    <option value="int">int</option>
+    <option value="string" selected="selected">string</option>
+</select>
+</li>
+</ul>
+<div class="add">
+    <button class="btn">Add</button>
+</div>
+</div>
+</div>
+
+<div class="control-group">
+    <label class="control-label">What response?</label>
+    <div class="controls">
+      <textarea class="input-xlarge" cols="40" name="resp" placeholder="How does it work? Why is it needed?" rows="10"></textarea>
+  </div>
+</div>
+<div class="control-group">
+    <label class="control-label">Run this for</label>
+    <div class="controls">
+      <select name="duration">
+        <option value="2" selected="selected">Two days</option>
+        <option value="14">Two weeks</option>
+        <option value="30">One Month</option>
+        <option value="">Until I choose a winner</option>
+    </select>
+</div>
+</div>
+<div class="control-group">
+  <div class="controls">
+    <input class="btn btn-danger" type="submit" value="Name This!" />
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<div id="footer" class="row-fluid">
+    <div class="span12">
+      <a href="http://twitter.com/namethisnet">Follow @namethisnet on Twitter</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
