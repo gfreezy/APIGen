@@ -4,3 +4,14 @@ def change_dict(type_dict, immutable_dict):
         if j == 'int':
             return_dict[i] = immutable_dict.get(i, type=int)
     return return_dict
+
+def dump_dict(str_value):
+    if not (str_value.find(',') and str_value.find(':')):
+        return {}
+    result = {}
+    params = str_value.split(',')
+    for item in params:
+        if not item.find(':'):
+            return {}
+        result[item.split(':')[0]] = item.split(':')[1]
+    return result
