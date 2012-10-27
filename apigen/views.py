@@ -43,3 +43,7 @@ def apigen(apigen_id=None):
     result = change_dict(params, request.args)
     tem = Template(gr.resp)
     return Template.render(tem, **result)
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
