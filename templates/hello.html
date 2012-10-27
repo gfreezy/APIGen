@@ -2,33 +2,74 @@
 <head>
 </head>
 <body>
-hello apigen
-<form>
+<h3>hello apigen</h3>
+<div>
     <p>
-    <span>
-    method
-    </span>
-    <select>
-        <option select>get</option>
-        <option>post</option>
-    </select>
+        <table>
+        <% for param in parameters %>
+        <tr>
+            <td>
+            已有输入值
+            </td>
+            <td>
+            {{param}}
+            </td>
+        </tr>
+        <% endfor %>
+        </table>
+        <span>
+        parameters
+        </span><br/>
+        <form action="/" method="POST">
+            <span>name</span>
+            <input name="par_name" value=""/>
+            <span>type</span>
+            <input name="par_type" value=""/>
+            <input type="submit"/>
+        <form>
+    </p>
+
+    <p>
+        <table>
+        <% for res in responses %>
+        <tr>
+            <td>
+            已有返回值
+            </td>
+            <td>
+            {{res}}
+            </td>
+        </tr>
+        <% endfor %>
+        </table>
+        <span>
+        responses
+        </span><br/>
+        <form action="/" method="POST">
+            <span>name</span>
+            <input name="res_name" value=""/>
+            <span>type</span>
+            <input name="res_type" value=""/>
+            <input type="submit"/>
+        <form>
     </p>
 
 
+    <form action="/" method="post">
+    <input type="hidden" value="{{service_id}}">
     <p>
-    <span>
-    parameters
-    </span><br/>
-    <span>name</span><input name="par_name" value="">
+        <span>
+        method
+        </span>
+        <select name="method">
+            <option select value="get">get</option>
+            <option value="post">post</option>
+        </select>
+        <input type="submit" value="generate">
     </p>
+    </form>
+    </input>
 
-    <p>
-    <span>
-    responses
-    </span><br/>
-    <span>name</span><input name="res_name" value="">
-    </p>
-
-</form>
+</div>
 </body>
 </html>
