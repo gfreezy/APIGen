@@ -26,7 +26,12 @@ def create_post():
         request_instance = GetRequest(lang=lang, params=json.dumps(dump_result), resp=resp)
         db.session.add(request_instance)
         db.session.commit()
-    return redirect('/')
+    return redirect('/success')
+
+
+@app.route('/success')
+def success():
+    return render_template('success.html')
 
 
 @app.route('/')
@@ -47,6 +52,7 @@ def apigen(apigen_id=None):
 @app.errorhandler(461)
 def page_not_found(error):
     return render_template('461.html'), 461
+
 
 @app.errorhandler(404)
 def page_not_found(error):
