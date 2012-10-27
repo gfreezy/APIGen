@@ -4,10 +4,15 @@ from flask import request, render_template, redirect
 from apigen import app
 
 
-@app.route('/edit/<service_id>')
-def edit(service_id):
-    #eit a exist apigen
-    return render_template('edit.html', parameters=[1, 2, 3, 4], responses=[1, 2, 3], service_id=service_id)
+@app.route('/create')
+def create():
+    return render_template('create.html')
+
+
+@app.route('/create', methods=['POST'])
+def create_post():
+    return 'ok'
+    # return render_template('create.html')
 
 
 @app.route('/', methods=['GET', 'POST'])
