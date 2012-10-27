@@ -5,6 +5,7 @@ body {
 
 .container {
 	width: 1205px;
+	position: relative;
 }
 
 select {
@@ -20,7 +21,7 @@ select {
 	border-left: 1px solid #DEDEDE;
 }
 
-select[name="method"] {
+select[name="method"], select[name="lang"] {
 	width: 290px;
 }
 

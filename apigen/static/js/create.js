@@ -22,4 +22,9 @@ $(document).ready(function() {
     var $textarea = $("textarea[name='resp']");
 
     set_indent($textarea);
+
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 });
