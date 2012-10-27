@@ -35,5 +35,8 @@ def home():
 
 @app.route('/service/<apigen_id>')
 def apigen(apigen_id=None):
+    
+    gr = apigen_id and db.session.query(GetRequest).filter(GetRequest.id == apigen_id).one()
     #return the response
-    return apigen_id
+    print str(gr)
+    return "%s %s %s " % (gr.method, gr.resp, gr.params)
