@@ -18,18 +18,19 @@ def create_post():
     if (method and params and resp):
         request_instance = GetRequest(method=method, params=params, resp=resp)
         db.session.add(request_instance)
-        print method, params, resp
+        db.session.commit()
     return redirect('/')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    grs = db.session.query(GetRequest)
     if request.method == 'POST' and request.form['gen'] == 'init':
         #get apigen id, init, redirect
         genid = 1
         return redirect('/edit/%s' % genid)
         #list all services_ids and show create button
-    return render_template('home.html', all_services=[1, 2, 3, 4])
+    return render_template('home.html', all_services=grs)
 
 
 @app.route('/service/<apigen_id>')
