@@ -1,11 +1,27 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, request, render_template, redirect
 
 
 app = Flask(__name__)
 app.debug = True
 
 
-@app.route('/')
-def hello():
-    return render_template('hello.html')
+@app.route('/edit/<service_id>')
+def edit(service_id):
+    #eit a exist apigen
+    return render_template('edit.html', parameters=[1,2,3,4], responses=[1, 2, 3], service_id=service_id)
+
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    if request.method=='post':
+        #get apigen id, init, redirect
+        genid = 1
+        redirect('/edit/%s' % genid)
+        #list all services_ids and show create button
+    return render_template('home.html', all_services=[1,2,3,4])
+
+
+@app.route('/service/<apigen_id>')
+def apigen(apigen_id=None):
+    #return the response
+    return apigen_id
