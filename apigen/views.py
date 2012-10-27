@@ -4,8 +4,8 @@ from flask import request, render_template,\
     redirect, abort
 from apigen import app, db
 from apigen.models.get_request import GetRequest
-from jinja2 import Template
-from apigen.util import dump_dict, change_dict
+from apigen.util import dump_dict, change_dict,\
+    render_args
 import json
 
 
@@ -16,13 +16,14 @@ def create():
 
 @app.route('/create', methods=['POST'])
 def create_post():
+    lang = request.form['lang']
     params = request.form['params']
     resp = request.form['resp']
-    if (params and resp):
+    if (params and resp and lang):
         dump_result = dump_dict(params)
         if not dump_result:
             return redirect('/')
-        request_instance = GetRequest(params=json.dumps(dump_result), resp=resp)
+        request_instance = GetRequest(lang=lang, params=json.dumps(dump_result), resp=resp)
         db.session.add(request_instance)
         db.session.commit()
     return redirect('/')
@@ -41,8 +42,11 @@ def apigen(apigen_id=None):
         abort(404)
     params = json.loads(gr.params)
     result = change_dict(params, request.args)
-    tem = Template(gr.resp)
-    return Template.render(tem, **result)
+    return render_args('jinja', gr.resp, result)
+
+@app.errorhandler(461)
+def page_not_found(error):
+    return render_template('461.html'), 461
 
 @app.errorhandler(404)
 def page_not_found(error):
