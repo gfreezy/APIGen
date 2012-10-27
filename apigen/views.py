@@ -4,6 +4,7 @@ from flask import request, render_template, redirect
 from apigen import app, db
 from apigen.models.get_request import GetRequest
 from jinja2 import Template
+from apigen.util import change_dict
 
 
 @app.route('/create')
@@ -33,14 +34,13 @@ def home():
 def apigen(apigen_id=None):
     gr = apigen_id and db.session.query(GetRequest).filter(GetRequest.id == apigen_id).one()
     #return "%s %s %s " % (gr.method, gr.resp, gr.params)
+    if not gr:
+        return redirect('/')
     params = gr.params.split(',')
     result = {}
     for item in params:
-        result[item[0]]=item[1]
+        result[item.split(':')[0]]=item.split(':')[1]
+    result = change_dict(result, request.args)
     tem = Template(gr.resp)
     return Template.render(tem, **result)
     # parameters including list,dict,int,string
-
-
-
-
