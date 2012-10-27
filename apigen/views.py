@@ -12,10 +12,10 @@ def edit(service_id):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
+    if request.method == 'POST' and request.form['gen'] == 'init':
         #get apigen id, init, redirect
         genid = 1
-        redirect('/edit/%s' % genid)
+        return redirect('/edit/%s' % genid)
         #list all services_ids and show create button
     return render_template('home.html', all_services=[1, 2, 3, 4])
 
