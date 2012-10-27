@@ -42,11 +42,10 @@ def apigen(apigen_id=None):
         abort(404)
     params = json.loads(gr.params)
     result = change_dict(params, request.args)
-    return render_args('jinja', gr.resp, result)
-
-@app.errorhandler(461)
-def page_not_found(error):
-    return render_template('461.html'), 461
+    try:
+        return render_args(gr.lang, gr.resp, result)
+    except TypeError:
+        return render_template('not_enough_params.html')
 
 @app.errorhandler(404)
 def page_not_found(error):

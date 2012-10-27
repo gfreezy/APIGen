@@ -1,5 +1,6 @@
 from jinja2 import Template as jinja_template
 from mako.template import Template as mako_template
+from django.template import Template as django_template
 
 render_dict = {
     'jinja':jinja_template,
@@ -29,7 +30,7 @@ def dump_dict(str_value):
     return result
 
 def render_args(engine_name, response, args):
-    x = render_dict.get('jinja')
+    x = render_dict.get(engine_name)
     tem = x(response)
     return tem.render(**args)
 
