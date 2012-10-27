@@ -2,7 +2,7 @@
 #coding: utf8
 from flask import request, render_template, redirect
 from apigen import app, db
-from apigen.model.get_request import GetRequest
+from apigen.models.get_request import GetRequest
 
 
 @app.route('/create')
@@ -18,6 +18,7 @@ def create_post():
     if (method and params and resp):
         request_instance = GetRequest(method=method, params=params, resp=resp)
         db.session.add(request_instance)
+        print method, params, resp
     return redirect('/')
 
 

@@ -12,7 +12,7 @@ class GetRequest(db.Model):
     create_time = db.Column(db.DateTime)
     update_time = db.Column(db.DateTime)
 
-    def __init__(self, params, resp, create_time=None, update_time=None):
+    def __init__(self, method, params, resp, create_time=None, update_time=None):
         self.method = method
         self.params = params
         self.resp = resp
