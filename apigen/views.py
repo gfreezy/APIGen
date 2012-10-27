@@ -22,21 +22,13 @@ def create_post():
     return redirect('/')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def home():
     grs = db.session.query(GetRequest)
-    if request.method == 'POST' and request.form['gen'] == 'init':
-        #get apigen id, init, redirect
-        genid = 1
-        return redirect('/edit/%s' % genid)
-        #list all services_ids and show create button
     return render_template('home.html', all_services=grs)
 
 
 @app.route('/service/<apigen_id>')
 def apigen(apigen_id=None):
-    
     gr = apigen_id and db.session.query(GetRequest).filter(GetRequest.id == apigen_id).one()
-    #return the response
-    print str(gr)
     return "%s %s %s " % (gr.method, gr.resp, gr.params)
