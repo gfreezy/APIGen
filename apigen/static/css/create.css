@@ -1,7 +1,6 @@
 body {
 	font: 18px/27px "PTSansRegular",Arial,sans-serif;
 	background-image: url(/static/img/cream_dust.png);
-	width: 1000px;
 }
 
 select {
@@ -13,12 +12,8 @@ select {
 	-moz-appearance: none;
 }
 
-#getName {
+.create-form {
 	border-left: 1px solid #DEDEDE;
-}
-
-#giveName, #getName {
-	padding: 1em;
 }
 
 select[name="method"] {
