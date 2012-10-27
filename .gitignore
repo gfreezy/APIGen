@@ -5,3 +5,5 @@ readline*/
 .Python
 build/
 dist/
+*.pyc
+share/
