@@ -1,0 +1,11 @@
+.param {
+	overflow: hidden;
+}
+
+.param label {
+	width: 55px;
+}
+
+.param input {
+	float: left;
+}

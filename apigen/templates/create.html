@@ -1,78 +1,63 @@
 <!doctype html>
 <html>
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>apigen</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>apigen</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/create.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/create.js"></script>
 </head>
 <body>
-<h3>hello apigen</h3>
-<div>
-    <p>
-        <table>
-        {% for param in parameters %}
-        <tr>
-            <td>
-            已有输入值
-            </td>
-            <td>
-            {{param}}
-            </td>
-        </tr>
-        {% endfor %}
-        </table>
-        <span>
-        parameters
-        </span><br/>
-        <form action="/" method="POST">
-            <span>name</span>
-            <input name="par_name" value=""/>
-            <span>type</span>
-            <input name="par_type" value=""/>
-            <input type="submit"/>
-        <form>
-    </p>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                <form method="POST" action="/create" class="form-horizontal">
+                    <input type="hidden" name="params" />
+                    <div class="control-group">
+                        <div class="control-label">Method</div>
+                        <div class="controls">
+                            <select name="method">
+                                <option>GET</option>
+                                <option>POST</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <p>
-        <table>
-        {% for res in responses %}
-        <tr>
-            <td>
-            已有返回值
-            </td>
-            <td>
-            {{res}}
-            </td>
-        </tr>
-        {% endfor %}
-        </table>
-        <span>
-        responses
-        </span><br/>
-        <form action="/" method="POST">
-            <span>name</span>
-            <input name="res_name" value=""/>
-            <span>type</span>
-            <input name="res_type" value=""/>
-            <input type="submit"/>
-        <form>
-    </p>
+                    <div class="control-group">
+                        <div class="control-label">Parameters</div>
+                        <div class="controls">
+                            <ul class="unstyled" id="params">
+                                <li class="param">
+                                    <label>name</label>
+                                    <input type="text" class="name"/>
+                                    <label>type</label>
+                                    <input type="text" class="type"/>
+                                </li>
+                            </ul>
+                            <div class="add">
+                                <button class="btn">Add</button>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="control-group">
+                        <div class="control-label">
+                            Response
+                        </div>
+                        <div class="controls">
+                            <textarea name="resp"></textarea>
+                        </div>
+                    </div>
 
-    <form action="/" method="post">
-    <input type="hidden" value="{{service_id}}">
-    <p>
-        <span>
-        method
-        </span>
-        <select name="method">
-            <option select value="get">get</option>
-            <option value="post">post</option>
-        </select>
-        <input type="submit" value="generate">
-    </p>
-    </form>
-    </input>
-
-</div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" value="submit" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
