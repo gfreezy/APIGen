@@ -7,8 +7,10 @@ APIGen: Gened Successfully
 {%block main%}
 <div class="alert alert-success">
   <h4>Congratuations! </h4>
-    We have successfully generated an api for you.
-    {{}}
+    We have successfully generated an api (
+    <a href="{{url_for('apigen', apigen_id=id, _external=True)}}">
+      {{url_for('apigen', apigen_id=id, _external=True)}}
+    </a>) for you.
     Follow the instructions below to make a request.
 </div>
 {%endblock%}
