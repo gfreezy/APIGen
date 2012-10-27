@@ -3,6 +3,7 @@
 from flask import request, render_template, redirect
 from apigen import app, db
 from apigen.models.get_request import GetRequest
+from jinja2 import Template
 
 
 @app.route('/create')
@@ -31,4 +32,15 @@ def home():
 @app.route('/service/<apigen_id>')
 def apigen(apigen_id=None):
     gr = apigen_id and db.session.query(GetRequest).filter(GetRequest.id == apigen_id).one()
-    return "%s %s %s " % (gr.method, gr.resp, gr.params)
+    #return "%s %s %s " % (gr.method, gr.resp, gr.params)
+    params = gr.params.split(',')
+    result = {}
+    for item in params:
+        result[item[0]]=item[1]
+    tem = Template(gr.resp)
+    return Template.render(tem, **result)
+    # parameters including list,dict,int,string
+
+
+
+
