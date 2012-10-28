@@ -71,8 +71,11 @@ def apigen(apigen_id=None):
     try:
         return render_args(gr.lang, resp, result)
     except TypeError:
-        return render_template('not_enough_params.html')
+        abort(400)
 
+@app.errorhandler(400)
+def not_enough_params(error):
+    return render_template('not_enough_params.html'), 400
 
 @app.errorhandler(404)
 def page_not_found(error):
