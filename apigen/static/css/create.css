@@ -31,3 +31,7 @@ select[name="duration"] {
 .active a {
 	background-image: url(/static/img/cream_dust.png);
 }
+
+#myTab {
+	display: none;
+}
