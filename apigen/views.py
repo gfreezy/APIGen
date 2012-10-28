@@ -44,6 +44,11 @@ def success(id):
 
 
 @app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/home')
 def home():
     grs = db.session.query(GetRequest)
     return render_template('home.html', all_services=grs)

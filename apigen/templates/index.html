@@ -1,0 +1,56 @@
+{%extends "base.html"%}
+{%block title%}
+APIGen: Your Generator for API
+{%endblock%}
+
+{%block head%}
+{{super()}}
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+{%endblock%}
+
+{%block header%}
+<div class="span11 header">
+	<h1><a href="/"><img src="/static/img/logo_smaller.gif"></a></h1>
+	<p>generate you a temp api</p>
+</div>
+{%endblock%}
+
+
+{%block main%}
+<div class="span12 pics">
+	<div class="offset3 span3">
+		<h4>What You Want</h4>
+		<div class="thumbnail">
+			<img src="/static/img/whatyougive.png">
+		</div>
+	</div>
+
+	<div class="span3">
+		<h4>What You Give</h4>
+		<div class="thumbnail">
+			<img src="/static/img/whatyougive.png" class="img-rounded">
+		</div>
+	</div>
+
+	<div class="span3">
+		<h4>What You Get</h4>
+		<div class="thumbnail">
+			<img src="/static/img/whatyougive.png">
+		</div>
+	</div>
+</div>
+<div class="span12" style="margin-top:30px;">
+	<div class="offset6 span6">
+		<a href="/create" class="btn btn-large btn-block btn-primary">
+			GO Try It...</a>
+	</div>
+</div>
+{%endblock%}
+
+
+{%block container%}
+{{super()}}
+<a href="https://github.com/gfreezy/apigen" target="_blank">
+	<img style="position: absolute; top: 0; right: 0; border: 0;" src="/static/img/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+</a>
+{%endblock%}

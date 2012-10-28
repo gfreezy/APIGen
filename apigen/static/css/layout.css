@@ -16,3 +16,8 @@ select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 }
+
+.header {
+	text-align: right;
+	margin-top:20px;
+}

@@ -1,0 +1,7 @@
+.pics .span3:first-child {
+	margin-top: 20px;
+}
+
+.pics  .span3:last-child {
+	margin-top: 20px;
+}
