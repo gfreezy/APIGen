@@ -5,6 +5,8 @@ APIGen: Gened Successfully
 {%endblock%}
 
 {%block main%}
+{%with messages = get_flashed_messages()%}
+{%if messages and messages[0] == 'gen succeeded'%}
 <div class="alert alert-success">
   <h4>Congratuations! </h4>
     We have successfully generated an api (
@@ -13,4 +15,6 @@ APIGen: Gened Successfully
     </a>) for you.
     Follow the instructions below to make a request.
 </div>
+{%endif%}
+{%endwith%}
 {%endblock%}

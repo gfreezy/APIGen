@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding: utf8
 from flask import request, render_template,\
-    redirect, abort, url_for
+    redirect, abort, url_for, flash
 from apigen import app, db
 from apigen.models.get_request import GetRequest
 from apigen.util import dump_dict, change_dict,\
@@ -22,11 +22,15 @@ def create_post():
     if (params and resp and lang):
         dump_result = dump_dict(params)
         if not dump_result:
-            return redirect('/')
+            flash('params not allowed')
+            return redirect(url_for('create'))
         request_instance = GetRequest(lang=lang, params=json.dumps(dump_result), resp=resp)
         db.session.add(request_instance)
         db.session.commit()
-    return redirect(url_for('success', id=request_instance.id))
+        flash('gen succeeded')
+        return redirect(url_for('success', id=request_instance.id))
+    flash('query empty')
+    return redirect(url_for('create'))
 
 
 @app.route('/service/<id>/success')
