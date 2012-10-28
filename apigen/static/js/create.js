@@ -12,10 +12,10 @@ $(document).ready(function() {
             var name = $.trim($el.find(".name").val());
             var type = $.trim($el.find(".type option:selected").val());
             if (name && type) {
-                params.push(name+":"+type);
+                params.push({name:type});
             }
         });
-        var str_params = params.join(",");
+        str_params = JSON.stringify(params, null, 2);
         $("input[type='hidden']").val(str_params);
     });
 

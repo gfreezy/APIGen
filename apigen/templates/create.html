@@ -7,6 +7,7 @@ APIGen: Create a Gen
 {{super()}}
 <link rel="stylesheet" type="text/css" href="/static/css/create.css">
 <script type="text/javascript" src="/static/js/tab.js"></script>
+<script type="text/javascript" src="/static/js/json2.js"></script>
 <script type="text/javascript" src="/static/js/create.js"></script>
 {%endblock%}
 
@@ -25,6 +26,18 @@ APIGen: Create a Gen
   </div>
 </div>
 <div class="span6 right-block">
+  {%with msgs = get_flashed_messages()%}
+  {%if msgs%}
+  <div class="alert alert-error">
+  <h4>Gen failed! </h4>
+  {%if msgs[0] == 'params not allowed'%}
+  Illegal character in parameters.
+  {%elif msgs[0] == 'query empty'%}
+  Both parameters and response can not be empty.
+  {%endif%}
+  </div>
+  {%endif%}
+  {%endwith%}
   <form accept-charset="UTF-8" action="/create" class="form-horizontal" method="post" style="margin: 20px 0">
     <input name="params" type="hidden" value="" />
     <div class="control-group">
