@@ -3,6 +3,8 @@ from mako.template import Template as mako_template
 from django.template import Template as django_template
 from django.template import Context
 from django.conf import settings
+
+
 settings.configure()
 
 render_dict = {

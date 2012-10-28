@@ -47,8 +47,11 @@ def apigen(apigen_id=None):
         abort(404)
     params = json.loads(gr.params)
     result = change_dict(params, request.args)
+    resp = gr.resp
+    if gr.lang == 'mako':
+        resp = '<%!from apigen.template_module import get_pic, get_words, get_random%>'+resp
     try:
-        return render_args(gr.lang, gr.resp, result)
+        return render_args(gr.lang, resp, result)
     except TypeError:
         return render_template('not_enough_params.html')
 
