@@ -56,8 +56,6 @@ Example:
     <li>{{ item }}</li>
 % endfor
 </ul>
-
-More detailed syntax, usage, please see http://www.makotemplates.org/
 '''
 
 jinja_syntax = '''{{ variable_name }}
@@ -88,6 +86,4 @@ Example:
     <li>{{ item }}</li>
 {% endfor %}
 </ul>
-
-More detailed syntax, usage, please see http://jinja.pocoo.org/docs/templates/
 '''
