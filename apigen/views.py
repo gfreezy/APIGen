@@ -6,12 +6,17 @@ from apigen import app, db
 from apigen.models.get_request import GetRequest
 from apigen.util import check_dict, change_dict,\
     render_args
+from apigen.const import django_syntax, jinja_syntax, mako_syntax
 import json
 
 
 @app.route('/create')
 def create():
-    return render_template('create.html')
+    return render_template(
+        'create.html',
+        django_syntax=django_syntax,
+        jinja_syntax=jinja_syntax,
+        mako_syntax=mako_syntax)
 
 
 @app.route('/create', methods=['POST'])
