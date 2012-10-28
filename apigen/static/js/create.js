@@ -6,13 +6,13 @@ $(document).ready(function() {
     });
 
     $("form").submit(function() {
-        var params = [];
+        var params = {};
         $(".param").each(function(i, el) {
             var $el = $(el);
             var name = $.trim($el.find(".name").val());
             var type = $.trim($el.find(".type option:selected").val());
             if (name && type) {
-                params.push({name:type});
+                params[name] = type;
             }
         });
         str_params = JSON.stringify(params, null, 2);
