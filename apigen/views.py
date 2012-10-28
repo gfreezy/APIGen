@@ -4,7 +4,7 @@ from flask import request, render_template,\
     redirect, abort, url_for, flash
 from apigen import app, db
 from apigen.models.get_request import GetRequest
-from apigen.util import dump_dict, change_dict,\
+from apigen.util import check_dict, change_dict,\
     render_args
 import json
 
@@ -20,11 +20,11 @@ def create_post():
     params = request.form['params']
     resp = request.form['resp']
     if (params and resp and lang):
-        dump_result = dump_dict(params)
-        if not dump_result:
+        check_dict(params)
+        if not params:
             flash('params not allowed')
             return redirect(url_for('create'))
-        request_instance = GetRequest(lang=lang, params=json.dumps(dump_result), resp=resp)
+        request_instance = GetRequest(lang=lang, params=params, resp=resp)
         db.session.add(request_instance)
         db.session.commit()
         flash('gen succeeded')

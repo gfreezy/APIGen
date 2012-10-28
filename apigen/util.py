@@ -1,3 +1,4 @@
+import json
 from jinja2 import Template as jinja_template
 from mako.template import Template as mako_template
 from django.template import Template as django_template
@@ -21,19 +22,15 @@ def change_dict(type_dict, immutable_dict):
             return_dict[i] = immutable_dict.get(i, type=int)
         else:
             return_dict[i] = immutable_dict.get(i)
-
     return return_dict
 
-def dump_dict(str_value):
-    if not (str_value.find(',') and str_value.find(':')):
-        return {}
-    result = {}
-    params = str_value.split(',')
-    for item in params:
-        if not item.find(':'):
-            return {}
-        result[item.split(':')[0]] = item.split(':')[1]
-    return result
+def check_dict(str_value):
+    try:
+        x = json.loads(str_value)
+        if not isinstance(x, dict):
+            str_value = ''
+    except ValueError:
+        str_value = ''
 
 def render_args(engine_name, response, args):
     x = render_dict.get(engine_name)
