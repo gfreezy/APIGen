@@ -5,3 +5,7 @@
 .pics  .span3:last-child {
 	margin-top: 20px;
 }
+
+.pics h4 {
+	text-align: center;
+}
