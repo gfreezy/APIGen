@@ -11,7 +11,7 @@ APIGen: Gened Successfully
 
 {%block main%}
 {%with messages = get_flashed_messages()%}
-{#{%if messages and messages[0] == 'gen succeeded'%}#}
+{%if messages and messages[0] == 'gen succeeded'%}
 <div class="offset5 span6">
 <div class="alert alert-success">
   <h3>Congratuations! </h3>
@@ -25,7 +25,7 @@ APIGen: Gened Successfully
 </div>
 </div>
 <div class="span1"></div>
-{#{%endif%}#}
+{%endif%}
 {%endwith%}
 
 <div class="offset4 span7">
