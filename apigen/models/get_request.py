@@ -21,4 +21,4 @@ class GetRequest(db.Model):
         self.update_time = update_time or now
 
     def __repr__(self):
-        return '<GetRequest %s %s %s>' % (self.id, self.lang, self.params)
+        return '<GetRequest %s %s %s %s>' % (self.id, self.lang, self.params, self.resp)
