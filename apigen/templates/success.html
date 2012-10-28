@@ -4,17 +4,43 @@
 APIGen: Gened Successfully
 {%endblock%}
 
+{%block head%}
+{{super()}}
+<link rel="stylesheet" type="text/css" href="/static/css/success.css">
+{%endblock%}
+
 {%block main%}
 {%with messages = get_flashed_messages()%}
-{%if messages and messages[0] == 'gen succeeded'%}
+{#{%if messages and messages[0] == 'gen succeeded'%}#}
+<div class="offset5 span6">
 <div class="alert alert-success">
-  <h4>Congratuations! </h4>
-    We have successfully generated an api (
+  <h3>Congratuations! </h3>
+  <p>
+    We have successfully generated you an api.<br />
     <a href="{{url_for('apigen', apigen_id=id, _external=True)}}">
-      {{url_for('apigen', apigen_id=id, _external=True)}}
-    </a>) for you.
+      {{url_for('apigen', apigen_id=api.id, _external=True)}}
+    </a><br />
     Follow the instructions below to make a request.
+  </p>
 </div>
-{%endif%}
+</div>
+<div class="span1"></div>
+{#{%endif%}#}
 {%endwith%}
+
+<div class="offset4 span7">
+  <div class="well-large">
+    <h3>API Information</h3>
+    <dl>
+      <dt>URL:</dt>
+      <dd><a href="{{url_for('apigen', apigen_id=api.id, _external=True)}}">
+        {{url_for('apigen', apigen_id=api.id, _external=True)}}</a>
+      </dd>
+      <dt>Parameters:</dt>
+      <dd>{{api.params}}</dd>
+      <dt>Response:</dt>
+      <dd>{{api.resp}}</dd>
+    </dl>
+  </div>
+</div>
 {%endblock%}

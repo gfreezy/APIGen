@@ -40,7 +40,11 @@ def create_post():
 
 @app.route('/service/<id>/success')
 def success(id):
-    return render_template('success.html', id=id)
+    api = GetRequest.query.get(id)
+    if not api:
+        abort(404)
+
+    return render_template('success.html', api=api)
 
 
 @app.route('/')

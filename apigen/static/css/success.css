@@ -1,0 +1,17 @@
+.well-large {
+	margin: 10px 20px 0 75px;
+	padding-left: 50px;
+	background: url(/static/img/note_paper_left.jpg) no-repeat right;
+}
+
+dt {
+	padding-bottom: 5px;
+}
+
+dd {
+	padding-bottom: 10px;
+}
+
+.alert-success {
+	padding-left: 40px;
+}
