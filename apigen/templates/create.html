@@ -17,6 +17,7 @@ APIGen: Create a Gen
     <li class="active"><a href="#django">Django</a></li>
     <li><a href="#jinja">Jinja</a></li>
     <li><a href="#mako">Mako</a></li>
+    <li><a href="#preview">Preview</a></li>
   </ul>
 
   <div class="tab-content">
@@ -31,6 +32,10 @@ APIGen: Create a Gen
     <div class="tab-pane" id="mako">
       <a href="http://www.makotemplates.org/" target="_blank">Mako</a>
       <pre>{{mako_syntax}}</pre>
+    </div>
+    <div class="tab-pane" id="preview">
+      <a href="javascript:;" target="_blank">Preview</a>
+      <p></p>
     </div>
   </div>
 </div>
@@ -96,11 +101,18 @@ APIGen: Create a Gen
     <div class="control-group">
       <label class="control-label">Which markup?</label>
       <div class="controls">
-        <select class="input-xlarge" name="lang">
-          <option value="django">Django</option>
-          <option value="jinja">Jinja</option>
-          <option value="mako">Mako</option>
-        </select>
+        <ul class="unstyled">
+          <li>
+            <select class="input-xlarge" name="lang">
+              <option value="django">Django</option>
+              <option value="jinja">Jinja</option>
+              <option value="mako">Mako</option>
+            </select>
+          </li>
+          <li>
+            <span class="label label-info syntax-helper">Syntax Helper</span>
+          </li>
+        </ul>
       </div>
     </div>
 

@@ -40,6 +40,10 @@ APIGen: Gened Successfully
       <dd>{{api.params}}</dd>
       <dt>Response:</dt>
       <dd>{{api.resp}}</dd>
+      <dt>Example:</dt>
+      <dd><a href="{{url_for('apigen', apigen_id=api.id, _external=True)}}?{{query}}">
+        {{url_for('apigen', apigen_id=api.id, _external=True)}}?{{query}}
+      </a></dd>
     </dl>
   </div>
 </div>

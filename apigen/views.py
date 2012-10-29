@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 #coding: utf8
-from flask import request, render_template,\
-    redirect, abort, url_for, flash
+import json
+from urllib import urlencode
+from flask import request, render_template, redirect, abort, url_for, flash
 from apigen import app, db
 from apigen.models.get_request import GetRequest
-from apigen.util import check_dict, change_dict,\
-    render_args
+from apigen.util import check_dict, change_dict, render_args, sample_params
 from apigen.const import django_syntax, jinja_syntax, mako_syntax
-import json
 
 
 @app.route('/create')
@@ -44,7 +43,10 @@ def success(id):
     if not api:
         abort(404)
 
-    return render_template('success.html', api=api)
+    sample = sample_params(api.params)
+    query = urlencode(sample)
+
+    return render_template('success.html', api=api, query=query)
 
 
 @app.route('/')
@@ -73,9 +75,27 @@ def apigen(apigen_id=None):
     except TypeError:
         abort(400)
 
+
+@app.route('/preview')
+def preview():
+    params = request.args.get("params")
+    resp = request.args.get("resp")
+    lang = request.args.get("lang")
+
+    sample = sample_params(params)
+    try:
+        ret = render_args(lang, resp, sample)
+    except Exception, e:
+        return str(e)
+
+    return ret
+
+
+@app.route('/')
 @app.errorhandler(400)
 def not_enough_params(error):
     return render_template('not_enough_params.html'), 400
+
 
 @app.errorhandler(404)
 def page_not_found(error):

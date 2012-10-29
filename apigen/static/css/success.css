@@ -12,6 +12,9 @@ dd {
 	padding-bottom: 10px;
 }
 
+dd a{
+	word-break: break-all;
+}
 .alert-success {
 	padding-left: 40px;
 }

@@ -50,3 +50,27 @@ select[name="duration"] {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
+
+#preview p {
+	min-height: 550px;
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: whiteSmoke;
+	border: 1px solid #CCC;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.syntax-helper {
+	margin-left: 205px;
+	cursor: pointer;
+}
