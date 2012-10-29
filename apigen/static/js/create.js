@@ -59,6 +59,7 @@ $(document).ready(function() {
     $("#params").on("focusin", ".name", function() {
         show_preview();
     });
+    $lang.change(show_preview);
 
     set_indent($resp);
 
