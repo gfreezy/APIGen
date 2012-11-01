@@ -11,3 +11,7 @@ share/
 .DS_Store
 
 apigen/.DS_Store
+
+apigen.sublime-project
+
+apigen.sublime-workspace

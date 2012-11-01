@@ -5,7 +5,7 @@ from urllib import urlencode
 from flask import request, render_template, redirect, abort, url_for, flash
 from apigen import app, db
 from apigen.models.get_request import GetRequest
-from apigen.util import check_dict, change_dict, render_args, sample_params
+from apigen.util import check_dict, change_dict, render_args, sample_params, crossdomain
 from apigen.const import django_syntax, jinja_syntax, mako_syntax
 
 
@@ -61,6 +61,7 @@ def home():
 
 
 @app.route('/service/<apigen_id>')
+@crossdomain('*')
 def apigen(apigen_id=None):
     gr = apigen_id and GetRequest.query.get(apigen_id)
     if not gr:
