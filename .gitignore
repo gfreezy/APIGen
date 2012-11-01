@@ -27,3 +27,6 @@ apigen/static/css/create_page.css
 apigen/static/css/base.css
 
 apigen/static/.webassets-cache/
+apigen/static/css/success_page.css
+
+virtualenv.bundle/
