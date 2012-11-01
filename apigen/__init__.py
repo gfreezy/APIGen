@@ -24,8 +24,8 @@ app.secret_key = 'a46bf773e4f315377d65ba1b3fe36a02'
 db = SQLAlchemy(app)
 
 
-@app.before_request
-def before_request(req):
+@app.after_request
+def after_request(req):
     db.session.close()
     return req
 
