@@ -9,7 +9,7 @@ dist/
 share/
 .DS_Store
 .DS_Store
-
+.svn
 apigen/.DS_Store
 
 apigen.sublime-project
