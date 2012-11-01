@@ -13,5 +13,7 @@ to start develop server
 ##Dependency
 * flask
 * flask-sqlalchemy
+* flask-assets
+* cssmin
 * mako
 * django

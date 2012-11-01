@@ -1,3 +1,16 @@
 handlers:
 - url: /static
   static_dir: apigen/static
+
+libraries:
+- name: flask
+  version: "0.9"
+
+- name: flask-sqlalchemy
+  version: "0.16"
+
+- name: flask-assets
+  version: "0.7"
+
+- name: cssmin
+  version: "0.1.4"

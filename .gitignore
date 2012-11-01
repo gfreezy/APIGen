@@ -15,3 +15,15 @@ apigen/.DS_Store
 apigen.sublime-project
 
 apigen.sublime-workspace
+
+apigen/static/js/create_page.js
+
+apigen/static/js/base.js
+
+apigen/static/css/index_page.css
+
+apigen/static/css/create_page.css
+
+apigen/static/css/base.css
+
+apigen/static/.webassets-cache/

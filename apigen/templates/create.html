@@ -5,10 +5,13 @@ APIGen: Create a Gen
 
 {%block head%}
 {{super()}}
-<link rel="stylesheet" type="text/css" href="/static/css/create.css">
-<script type="text/javascript" src="/static/js/tab.js"></script>
-<script type="text/javascript" src="/static/js/json2.js"></script>
-<script type="text/javascript" src="/static/js/create.js"></script>
+{%assets "css_create"%}
+<link rel="stylesheet" type="text/css" href="{{ASSET_URL}}">
+{%endassets%}
+
+{%assets "js_create"%}
+<script type="text/javascript" src="{{ASSET_URL}}"></script>
+{%endassets%}
 {%endblock%}
 
 {%block main%}

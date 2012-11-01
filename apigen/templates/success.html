@@ -6,7 +6,9 @@ APIGen: Gened Successfully
 
 {%block head%}
 {{super()}}
-<link rel="stylesheet" type="text/css" href="/static/css/success.css">
+{%assets "css_success"%}
+<link rel="stylesheet" type="text/css" href="{{ASSET_URL}}">
+{%endassets%}
 {%endblock%}
 
 {%block main%}

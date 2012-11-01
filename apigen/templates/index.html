@@ -5,7 +5,9 @@ APIGen: Your Generator for API
 
 {%block head%}
 {{super()}}
-<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+{%assets "css_index"%}
+<link rel="stylesheet" type="text/css" href="{{ASSET_URL}}">
+{%endassets%}
 {%endblock%}
 
 {%block header%}
