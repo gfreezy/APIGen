@@ -30,3 +30,22 @@ apigen/static/.webassets-cache/
 apigen/static/css/success_page.css
 
 virtualenv.bundle/
+
+__init__.py
+
+cssmin.py
+
+flask/
+
+flask_assets.py
+
+flask_sqlalchemy.py
+
+jinja2/
+
+mako/
+sqlAlchemy/
+
+webassets/
+
+werkzeug/
