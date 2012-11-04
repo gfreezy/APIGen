@@ -1,4 +1,5 @@
 # APIGen
+[APIGen on sae](http://apigen.sinaapp.com)
 
 ## First Run
 
@@ -14,6 +15,8 @@ to start develop server
 * flask
 * flask-sqlalchemy
 * flask-assets
+* flask-script
 * cssmin
+* jsmin
 * mako
 * django

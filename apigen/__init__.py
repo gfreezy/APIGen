@@ -14,7 +14,7 @@ if 'SERVER_SOFTWARE' in os.environ:
         sae.const.MYSQL_USER, sae.const.MYSQL_PASS, sae.const.MYSQL_HOST,
         sae.const.MYSQL_PORT, sae.const.MYSQL_DB)
     app.config['SQLALCHEMY_POOL_RECYCLE'] = 10
-    app.debug = True
+    app.debug = False
 
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
